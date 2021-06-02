@@ -139,8 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="allocate.cpp" />
+    <ClCompile Include="deallocate.cpp" />
+    <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="segment.cpp" />
+    <ClCompile Include="segment.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="hole.h" />
+    <ClInclude Include="memory.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
