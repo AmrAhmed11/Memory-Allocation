@@ -1,9 +1,11 @@
 #ifndef MEMORY_H
 #define MEMORY_H
+#include <algorithm>
+#include <vector>
+#include "segment.h"
+#include "hole.h"
 
-#include<vector>
-#include"segment.h"
-#include"hole.h"
+
 
 struct memory {
 	int size;

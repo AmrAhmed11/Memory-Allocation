@@ -1,0 +1,6 @@
+*.json
+*.exe
+core/Memory-Allocation/.vs/slnx.sqlite
+core/Memory-Allocation/.vs/Memory-Allocation/v16/.suo
+core/Memory-Allocation/.vs/Memory-Allocation/v16/Browse.VC.db
+
