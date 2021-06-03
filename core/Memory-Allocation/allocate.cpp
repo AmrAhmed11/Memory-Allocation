@@ -1,5 +1,6 @@
 #include "memory.h"
 #include "process.h"
+#include <iostream>
 void allocation(memory &input_memory, std::vector<process> &input_processes, char method)
 {
     //1 bestfit
@@ -14,7 +15,7 @@ void allocation(memory &input_memory, std::vector<process> &input_processes, cha
         {  
             if (method==1)
                 sort(main_memory.holes.begin(), main_memory.holes.end(), [](hole a, hole b) { return a.limit < b.limit; });
-            if (method==3)
+            else if (method==3)
                 sort(main_memory.holes.begin(), main_memory.holes.end(), [](hole a, hole b) { return a.limit > b.limit; });
             for (int j = 0; j < main_memory.holes.size(); j++)
             {
@@ -39,9 +40,11 @@ void allocation(memory &input_memory, std::vector<process> &input_processes, cha
         }
         if (no_of_segments==input_processes[i].segments.size()){
             input_memory=main_memory;
+
         }
         else{
             main_memory=input_memory;
+            std::cout << "Error loading process "<<i+1<<'\n';
         }
         no_of_segments = 0;
     }  

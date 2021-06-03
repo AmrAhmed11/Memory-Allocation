@@ -10,7 +10,7 @@ using namespace std;
 //allocation(main_memory, new_processes, method);
 
 
-void input(memory main_memory, vector<process> &new_processes, char &method) {
+void input(memory &main_memory, vector<process> &new_processes, char &method) {
 	cout << "enter total memory size: ";
 	cin >> main_memory.size;
 
