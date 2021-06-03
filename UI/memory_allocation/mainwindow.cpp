@@ -73,6 +73,7 @@ void MainWindow::on_Enter_Hole_button_clicked()
         holesNumber--;
         int rowPosition = ui->segments_table->rowCount();
         ui->segments_table->insertRow(rowPosition);
+        ui->segments_table->setEditTriggers(QAbstractItemView::NoEditTriggers);
         QString HoleName = "Hole "+QString::number(ui->segments_table->rowCount());
         QString holeAddress =ui->hole_Address->text();
         QString HoleSize = ui->hole_Size->text();

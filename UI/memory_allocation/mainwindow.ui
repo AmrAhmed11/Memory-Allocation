@@ -6,146 +6,187 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>847</width>
-    <height>637</height>
+    <width>768</width>
+    <height>517</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="input_control_widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>401</width>
-      <height>381</height>
-     </rect>
-    </property>
-    <widget class="QWidget" name="">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>0</y>
-       <width>381</width>
-       <height>381</height>
-      </rect>
-     </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Memory size</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2" colspan="2">
-       <widget class="QLineEdit" name="Memory_size"/>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Holes number</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2" colspan="2">
-       <widget class="QLineEdit" name="Holes_number"/>
-      </item>
-      <item row="2" column="1" colspan="2">
-       <widget class="QPushButton" name="Enter_button">
-        <property name="text">
-         <string>Enter</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Address</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2" colspan="2">
-       <widget class="QLineEdit" name="hole_Address"/>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>Size</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="2" colspan="2">
-       <widget class="QLineEdit" name="hole_Size"/>
-      </item>
-      <item row="5" column="1">
-       <widget class="QPushButton" name="Enter_Hole_button">
-        <property name="text">
-         <string>Enter hole</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="3">
-       <widget class="QPushButton" name="reset_Button">
-        <property name="text">
-         <string>Reset</string>
-        </property>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="1" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QWidget" name="input_control_widget" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Memory size</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="Memory_size"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Holes number</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="Holes_number"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="Enter_button">
+             <property name="text">
+              <string>Enter</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Address</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="hole_Address"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>Size</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="hole_Size"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="Enter_Hole_button">
+             <property name="text">
+              <string>Enter hole</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="reset_Button">
+             <property name="text">
+              <string>Reset</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QWidget" name="output_widget" native="true">
+           <property name="styleSheet">
+            <string notr="true">QWidget{
+min-width: 100px;
+}</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
      </layout>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="output_widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>0</y>
-      <width>441</width>
-      <height>381</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTableWidget" name="segments_table">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>390</y>
-      <width>821</width>
-      <height>192</height>
-     </rect>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <column>
-     <property name="text">
-      <string>Process</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Segment Address </string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Segment Size</string>
-     </property>
-    </column>
-   </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QTableWidget" name="segments_table">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>6</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
+      <property name="sortingEnabled">
+       <bool>false</bool>
+      </property>
+      <property name="columnCount">
+       <number>3</number>
+      </property>
+      <attribute name="horizontalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="horizontalHeaderCascadingSectionResizes">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>33</number>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>157</number>
+      </attribute>
+      <attribute name="horizontalHeaderHighlightSections">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderCascadingSectionResizes">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Process</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Segment Address </string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Segment Size</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>847</width>
-     <height>26</height>
+     <width>768</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
