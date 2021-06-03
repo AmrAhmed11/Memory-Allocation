@@ -4,6 +4,7 @@
 #include "input.cpp"
 #include "allocate.cpp"
 #include "deallocate.cpp"
+#include "process.h"
 
 using namespace std;
 
@@ -22,15 +23,23 @@ int main() {
 	inholes[2].limit=3;
 	inholes[3].limit=4;
 	inholes[4].limit=1;
-	vector <segment> insegment(4);
-	insegment[0].limit=2;
-	insegment[0].process_number=0;
-	insegment[1].limit=2;
-	insegment[1].process_number=1;
-	insegment[2].limit=1;
-	insegment[2].process_number=2;
-	insegment[3].limit=6;
-	insegment[3].process_number=0;
+	vector <process> insegment(3);
+	segment x0;
+	x0.limit = 2;
+	x0.process_number=0;
+	segment x1;
+	x0.limit = 2;
+	x0.process_number=1;
+	segment x2;
+	x0.limit = 1;
+	x0.process_number=2;
+	segment x3;
+	x0.limit = 6;
+	x0.process_number=0;
+	insegment[0].segments.push_back(x0);
+	insegment[0].segments.push_back(x3);
+	insegment[1].segments.push_back(x1);
+	insegment[2].segments.push_back(x2);
 	for (int i=0;i<no_holes;i++){
 		main_memory.holes.push_back(inholes[i]);
 	}
@@ -38,7 +47,5 @@ int main() {
 
 	for (int i=0;i<main_memory.segments.size();i++){
 		cout << main_memory.segments[i].base<<"     "<<i<<"     "<<main_memory.segments[i].process_number<<'\n';
-	}
-
-	
+	}	
 }
