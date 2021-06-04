@@ -17,4 +17,16 @@ int main() {
 	for (int i=0;i<main_memory.segments.size();i++){
 		cout << main_memory.segments[i].base<<"     "<<i+1<<"     "<<main_memory.segments[i].process_number<<'\n';
 	}	
+	int deallocated_process;
+	// cout <<" process to deallocate"<<'\n';
+	// cin >> deallocated_process;
+	// deallocation(main_memory,deallocated_process);
+	// cout <<"After deallocation"<<'\n';
+	// for (int i=0;i<main_memory.segments.size();i++){
+	// 	cout<< main_memory.segments[i].base<<"     "<<i+1<<"     "<<main_memory.segments[i].process_number<<'\n';
+	// }	
+	// cout <<"After holes"<<'\n';
+	// for (int i=0;i<main_memory.holes.size();i++){
+	// 	cout<< main_memory.holes[i].base<<"     "<<main_memory.holes[i].limit<<"     "<<main_memory.holes[i].id<<'\n';
+	// }	
 }

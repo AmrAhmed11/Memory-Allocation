@@ -13,10 +13,12 @@ void allocation(memory &input_memory, std::vector<process> &input_processes, cha
     {   
         for (int k = 0; k < input_processes[i].segments.size(); k++)
         {  
-            if (method==1)
+            if (method=='1'){
                 sort(main_memory.holes.begin(), main_memory.holes.end(), [](hole a, hole b) { return a.limit < b.limit; });
-            else if (method==3)
+            }
+            else if (method=='3'){
                 sort(main_memory.holes.begin(), main_memory.holes.end(), [](hole a, hole b) { return a.limit > b.limit; });
+            }
             for (int j = 0; j < main_memory.holes.size(); j++)
             {
                 if (input_processes[i].segments[k].limit <= main_memory.holes[j].limit)
@@ -47,5 +49,8 @@ void allocation(memory &input_memory, std::vector<process> &input_processes, cha
             std::cout << "Error loading process "<<i+1<<'\n';
         }
         no_of_segments = 0;
-    }  
+    }
+     for (int i = 0;i<input_memory.holes.size();i++ ){
+        input_memory.holes[i].id=i;
+    } 
 }
