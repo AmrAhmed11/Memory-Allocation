@@ -29,6 +29,14 @@ private slots:
     void on_reset_Button_clicked();
 
 
+    void on_Allocate_button_clicked();
+
+    void on_segments_number_button_clicked();
+
+    void on_enter_segment_clicked();
+
+    void on_segments_table_cellDoubleClicked(int row, int column);
+
 private:
     Ui::MainWindow *ui;
 };
