@@ -1,4 +1,5 @@
-#include "memory.h"
+#include "deallocate.h"
+
 void deallocation(memory &input_memory, int deallocated_process){
     for (int i = 0;i<input_memory.segments.size();i++ ){
         if (input_memory.segments[i].process_number==deallocated_process){

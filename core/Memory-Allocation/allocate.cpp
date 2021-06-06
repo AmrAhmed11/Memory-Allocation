@@ -1,6 +1,5 @@
-#include "memory.h"
-#include "process.h"
-#include <iostream>
+#include "allocate.h"
+
 void allocation(memory &input_memory, std::vector<process> &input_processes, char method)
 {
     //1 bestfit
