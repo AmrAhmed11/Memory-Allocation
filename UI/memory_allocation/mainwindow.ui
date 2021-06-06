@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1117</width>
-    <height>1093</height>
+    <width>1038</width>
+    <height>1358</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,72 +17,10 @@
    <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="14" column="0" colspan="2">
-       <widget class="QPushButton" name="Enter_Hole_button">
-        <property name="text">
-         <string>Enter hole</string>
-        </property>
-       </widget>
+      <item row="18" column="0" colspan="2">
+       <widget class="QLineEdit" name="segments_number"/>
       </item>
-      <item row="20" column="0" colspan="2">
-       <widget class="QLabel" name="label_6">
-        <property name="text">
-         <string>Segment Name</string>
-        </property>
-       </widget>
-      </item>
-      <item row="16" column="0" colspan="2">
-       <widget class="QPushButton" name="Allocate_button">
-        <property name="text">
-         <string>Add New Process</string>
-        </property>
-       </widget>
-      </item>
-      <item row="27" column="0" colspan="2">
-       <widget class="QPushButton" name="reset_Button">
-        <property name="text">
-         <string>RESET</string>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="0" colspan="2">
-       <widget class="QLineEdit" name="hole_Size"/>
-      </item>
-      <item row="22" column="0" colspan="2">
-       <widget class="QLabel" name="label_7">
-        <property name="text">
-         <string>Segment Size</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0" colspan="2">
-       <widget class="QLineEdit" name="Holes_number"/>
-      </item>
-      <item row="6" column="0" colspan="2">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Address</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0" colspan="2">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Holes number</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Memory size</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="2">
-       <widget class="QLineEdit" name="Memory_size"/>
-      </item>
-      <item row="28" column="0" rowspan="2">
+      <item row="29" column="0" rowspan="2">
        <widget class="QTableWidget" name="segments_table">
         <property name="enabled">
          <bool>true</bool>
@@ -195,33 +133,6 @@
         </column>
        </widget>
       </item>
-      <item row="25" column="0" colspan="2">
-       <widget class="QPushButton" name="enter_segment">
-        <property name="text">
-         <string>Enter Segment</string>
-        </property>
-       </widget>
-      </item>
-      <item row="18" column="0" colspan="2">
-       <widget class="QLineEdit" name="segments_number"/>
-      </item>
-      <item row="8" column="0" colspan="2">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>Size</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0" colspan="2">
-       <widget class="QPushButton" name="Enter_button">
-        <property name="text">
-         <string>Enter</string>
-        </property>
-       </widget>
-      </item>
-      <item row="21" column="0" colspan="2">
-       <widget class="QLineEdit" name="segment_name"/>
-      </item>
       <item row="19" column="0" colspan="2">
        <widget class="QPushButton" name="segments_number_button">
         <property name="text">
@@ -229,17 +140,14 @@
         </property>
        </widget>
       </item>
-      <item row="7" column="0" colspan="2">
-       <widget class="QLineEdit" name="hole_Address"/>
-      </item>
-      <item row="17" column="0" colspan="2">
-       <widget class="QLabel" name="label_5">
+      <item row="28" column="0" colspan="2">
+       <widget class="QPushButton" name="reset_Button">
         <property name="text">
-         <string>Segments Number</string>
+         <string>RESET</string>
         </property>
        </widget>
       </item>
-      <item row="28" column="1" rowspan="2">
+      <item row="29" column="1" rowspan="2">
        <widget class="QWidget" name="output_widget" native="true">
         <property name="styleSheet">
          <string notr="true">QWidget{
@@ -249,10 +157,92 @@ min-width: 300px;
         </property>
        </widget>
       </item>
+      <item row="16" column="0" colspan="2">
+       <widget class="QPushButton" name="Allocate_button">
+        <property name="text">
+         <string>Add New Process</string>
+        </property>
+       </widget>
+      </item>
+      <item row="20" column="0" colspan="2">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Segment Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="22" column="0" colspan="2">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>Segment Size</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Memory size</string>
+        </property>
+       </widget>
+      </item>
+      <item row="25" column="0" colspan="2">
+       <widget class="QPushButton" name="enter_segment">
+        <property name="text">
+         <string>Enter Segment</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" colspan="2">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Address</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0" colspan="2">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Size</string>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="0" colspan="2">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Segments Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="0" colspan="2">
+       <widget class="QPushButton" name="Done">
+        <property name="text">
+         <string>DONE</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QLineEdit" name="Memory_size"/>
+      </item>
+      <item row="9" column="0" colspan="2">
+       <widget class="QLineEdit" name="hole_Size"/>
+      </item>
       <item row="24" column="0" colspan="2">
        <widget class="QLineEdit" name="segment_size"/>
       </item>
-      <item row="26" column="0" colspan="2">
+      <item row="3" column="0" colspan="2">
+       <widget class="QPushButton" name="Enter_button">
+        <property name="text">
+         <string>Add New Hole</string>
+        </property>
+       </widget>
+      </item>
+      <item row="21" column="0" colspan="2">
+       <widget class="QLineEdit" name="segment_name"/>
+      </item>
+      <item row="5" column="0" colspan="2">
+       <widget class="QLineEdit" name="hole_Address"/>
+      </item>
+      <item row="27" column="0" colspan="2">
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -265,6 +255,32 @@ min-width: 300px;
         </property>
        </spacer>
       </item>
+      <item row="12" column="0" colspan="2">
+       <widget class="QPushButton" name="Enter_Hole_button">
+        <property name="text">
+         <string>Enter hole</string>
+        </property>
+       </widget>
+      </item>
+      <item row="26" column="0" colspan="2">
+       <widget class="QComboBox" name="Allocatio_Method">
+        <item>
+         <property name="text">
+          <string>Best Fit</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>First Fit</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Worst FIt</string>
+         </property>
+        </item>
+       </widget>
+      </item>
      </layout>
     </item>
    </layout>
@@ -274,7 +290,7 @@ min-width: 300px;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1117</width>
+     <width>1038</width>
      <height>26</height>
     </rect>
    </property>

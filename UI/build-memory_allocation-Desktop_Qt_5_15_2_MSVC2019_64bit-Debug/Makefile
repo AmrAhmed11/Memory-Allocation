@@ -266,6 +266,7 @@ Makefile: ..\memory_allocation\memory_allocation.pro E:\qt\5.15.2\msvc2019_64\mk
 		E:\qt\5.15.2\msvc2019_64\mkspecs\features\qt_config.prf \
 		E:\qt\5.15.2\msvc2019_64\mkspecs\win32-msvc\qmake.conf \
 		E:\qt\5.15.2\msvc2019_64\mkspecs\features\spec_post.prf \
+		.qmake.stash \
 		E:\qt\5.15.2\msvc2019_64\mkspecs\features\exclusive_builds.prf \
 		E:\qt\5.15.2\msvc2019_64\mkspecs\common\msvc-version.conf \
 		E:\qt\5.15.2\msvc2019_64\mkspecs\features\toolchain.prf \
@@ -295,7 +296,6 @@ Makefile: ..\memory_allocation\memory_allocation.pro E:\qt\5.15.2\msvc2019_64\mk
 		E:\qt\5.15.2\msvc2019_64\lib\Qt5Gui.prl \
 		E:\qt\5.15.2\msvc2019_64\lib\Qt5Core.prl \
 		E:\qt\5.15.2\msvc2019_64\lib\qtmain.prl \
-		.qmake.stash \
 		E:\qt\5.15.2\msvc2019_64\mkspecs\features\build_pass.prf \
 		E:\qt\5.15.2\msvc2019_64\lib\Qt5Widgetsd.prl \
 		E:\qt\5.15.2\msvc2019_64\lib\Qt5Guid.prl \
@@ -484,6 +484,7 @@ E:\qt\5.15.2\msvc2019_64\mkspecs\features\qt_functions.prf:
 E:\qt\5.15.2\msvc2019_64\mkspecs\features\qt_config.prf:
 E:\qt\5.15.2\msvc2019_64\mkspecs\win32-msvc\qmake.conf:
 E:\qt\5.15.2\msvc2019_64\mkspecs\features\spec_post.prf:
+.qmake.stash:
 E:\qt\5.15.2\msvc2019_64\mkspecs\features\exclusive_builds.prf:
 E:\qt\5.15.2\msvc2019_64\mkspecs\common\msvc-version.conf:
 E:\qt\5.15.2\msvc2019_64\mkspecs\features\toolchain.prf:
@@ -513,7 +514,6 @@ E:\qt\5.15.2\msvc2019_64\lib\Qt5Widgets.prl:
 E:\qt\5.15.2\msvc2019_64\lib\Qt5Gui.prl:
 E:\qt\5.15.2\msvc2019_64\lib\Qt5Core.prl:
 E:\qt\5.15.2\msvc2019_64\lib\qtmain.prl:
-.qmake.stash:
 E:\qt\5.15.2\msvc2019_64\mkspecs\features\build_pass.prf:
 E:\qt\5.15.2\msvc2019_64\lib\Qt5Widgetsd.prl:
 E:\qt\5.15.2\msvc2019_64\lib\Qt5Guid.prl:

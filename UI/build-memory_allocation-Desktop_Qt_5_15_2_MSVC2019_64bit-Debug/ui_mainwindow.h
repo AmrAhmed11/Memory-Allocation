@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -31,29 +32,29 @@ public:
     QWidget *centralwidget;
     QGridLayout *gridLayout_3;
     QGridLayout *gridLayout_2;
-    QPushButton *Enter_Hole_button;
-    QLabel *label_6;
-    QPushButton *Allocate_button;
-    QPushButton *reset_Button;
-    QLineEdit *hole_Size;
-    QLabel *label_7;
-    QLineEdit *Holes_number;
-    QLabel *label_3;
-    QLabel *label_2;
-    QLabel *label;
-    QLineEdit *Memory_size;
-    QTableWidget *segments_table;
-    QPushButton *enter_segment;
     QLineEdit *segments_number;
+    QTableWidget *segments_table;
+    QPushButton *segments_number_button;
+    QPushButton *reset_Button;
+    QWidget *output_widget;
+    QPushButton *Allocate_button;
+    QLabel *label_6;
+    QLabel *label_7;
+    QLabel *label;
+    QPushButton *enter_segment;
+    QLabel *label_3;
     QLabel *label_4;
+    QLabel *label_5;
+    QPushButton *Done;
+    QLineEdit *Memory_size;
+    QLineEdit *hole_Size;
+    QLineEdit *segment_size;
     QPushButton *Enter_button;
     QLineEdit *segment_name;
-    QPushButton *segments_number_button;
     QLineEdit *hole_Address;
-    QLabel *label_5;
-    QWidget *output_widget;
-    QLineEdit *segment_size;
     QSpacerItem *verticalSpacer;
+    QPushButton *Enter_Hole_button;
+    QComboBox *Allocatio_Method;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -61,67 +62,17 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1117, 1093);
+        MainWindow->resize(1038, 1358);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout_3 = new QGridLayout(centralwidget);
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        Enter_Hole_button = new QPushButton(centralwidget);
-        Enter_Hole_button->setObjectName(QString::fromUtf8("Enter_Hole_button"));
+        segments_number = new QLineEdit(centralwidget);
+        segments_number->setObjectName(QString::fromUtf8("segments_number"));
 
-        gridLayout_2->addWidget(Enter_Hole_button, 14, 0, 1, 2);
-
-        label_6 = new QLabel(centralwidget);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-
-        gridLayout_2->addWidget(label_6, 20, 0, 1, 2);
-
-        Allocate_button = new QPushButton(centralwidget);
-        Allocate_button->setObjectName(QString::fromUtf8("Allocate_button"));
-
-        gridLayout_2->addWidget(Allocate_button, 16, 0, 1, 2);
-
-        reset_Button = new QPushButton(centralwidget);
-        reset_Button->setObjectName(QString::fromUtf8("reset_Button"));
-
-        gridLayout_2->addWidget(reset_Button, 27, 0, 1, 2);
-
-        hole_Size = new QLineEdit(centralwidget);
-        hole_Size->setObjectName(QString::fromUtf8("hole_Size"));
-
-        gridLayout_2->addWidget(hole_Size, 11, 0, 1, 2);
-
-        label_7 = new QLabel(centralwidget);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-
-        gridLayout_2->addWidget(label_7, 22, 0, 1, 2);
-
-        Holes_number = new QLineEdit(centralwidget);
-        Holes_number->setObjectName(QString::fromUtf8("Holes_number"));
-
-        gridLayout_2->addWidget(Holes_number, 3, 0, 1, 2);
-
-        label_3 = new QLabel(centralwidget);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-
-        gridLayout_2->addWidget(label_3, 6, 0, 1, 2);
-
-        label_2 = new QLabel(centralwidget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-
-        gridLayout_2->addWidget(label_2, 2, 0, 1, 2);
-
-        label = new QLabel(centralwidget);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        gridLayout_2->addWidget(label, 0, 0, 1, 2);
-
-        Memory_size = new QLineEdit(centralwidget);
-        Memory_size->setObjectName(QString::fromUtf8("Memory_size"));
-
-        gridLayout_2->addWidget(Memory_size, 1, 0, 1, 2);
+        gridLayout_2->addWidget(segments_number, 18, 0, 1, 2);
 
         segments_table = new QTableWidget(centralwidget);
         if (segments_table->columnCount() < 4)
@@ -172,47 +123,17 @@ public:
         segments_table->verticalHeader()->setCascadingSectionResizes(true);
         segments_table->verticalHeader()->setProperty("showSortIndicator", QVariant(false));
 
-        gridLayout_2->addWidget(segments_table, 28, 0, 2, 1);
-
-        enter_segment = new QPushButton(centralwidget);
-        enter_segment->setObjectName(QString::fromUtf8("enter_segment"));
-
-        gridLayout_2->addWidget(enter_segment, 25, 0, 1, 2);
-
-        segments_number = new QLineEdit(centralwidget);
-        segments_number->setObjectName(QString::fromUtf8("segments_number"));
-
-        gridLayout_2->addWidget(segments_number, 18, 0, 1, 2);
-
-        label_4 = new QLabel(centralwidget);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-
-        gridLayout_2->addWidget(label_4, 8, 0, 1, 2);
-
-        Enter_button = new QPushButton(centralwidget);
-        Enter_button->setObjectName(QString::fromUtf8("Enter_button"));
-
-        gridLayout_2->addWidget(Enter_button, 5, 0, 1, 2);
-
-        segment_name = new QLineEdit(centralwidget);
-        segment_name->setObjectName(QString::fromUtf8("segment_name"));
-
-        gridLayout_2->addWidget(segment_name, 21, 0, 1, 2);
+        gridLayout_2->addWidget(segments_table, 29, 0, 2, 1);
 
         segments_number_button = new QPushButton(centralwidget);
         segments_number_button->setObjectName(QString::fromUtf8("segments_number_button"));
 
         gridLayout_2->addWidget(segments_number_button, 19, 0, 1, 2);
 
-        hole_Address = new QLineEdit(centralwidget);
-        hole_Address->setObjectName(QString::fromUtf8("hole_Address"));
+        reset_Button = new QPushButton(centralwidget);
+        reset_Button->setObjectName(QString::fromUtf8("reset_Button"));
 
-        gridLayout_2->addWidget(hole_Address, 7, 0, 1, 2);
-
-        label_5 = new QLabel(centralwidget);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-
-        gridLayout_2->addWidget(label_5, 17, 0, 1, 2);
+        gridLayout_2->addWidget(reset_Button, 28, 0, 1, 2);
 
         output_widget = new QWidget(centralwidget);
         output_widget->setObjectName(QString::fromUtf8("output_widget"));
@@ -221,16 +142,99 @@ public:
 "\n"
 "}"));
 
-        gridLayout_2->addWidget(output_widget, 28, 1, 2, 1);
+        gridLayout_2->addWidget(output_widget, 29, 1, 2, 1);
+
+        Allocate_button = new QPushButton(centralwidget);
+        Allocate_button->setObjectName(QString::fromUtf8("Allocate_button"));
+
+        gridLayout_2->addWidget(Allocate_button, 16, 0, 1, 2);
+
+        label_6 = new QLabel(centralwidget);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+
+        gridLayout_2->addWidget(label_6, 20, 0, 1, 2);
+
+        label_7 = new QLabel(centralwidget);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+
+        gridLayout_2->addWidget(label_7, 22, 0, 1, 2);
+
+        label = new QLabel(centralwidget);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        gridLayout_2->addWidget(label, 0, 0, 1, 2);
+
+        enter_segment = new QPushButton(centralwidget);
+        enter_segment->setObjectName(QString::fromUtf8("enter_segment"));
+
+        gridLayout_2->addWidget(enter_segment, 25, 0, 1, 2);
+
+        label_3 = new QLabel(centralwidget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        gridLayout_2->addWidget(label_3, 4, 0, 1, 2);
+
+        label_4 = new QLabel(centralwidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+
+        gridLayout_2->addWidget(label_4, 6, 0, 1, 2);
+
+        label_5 = new QLabel(centralwidget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+
+        gridLayout_2->addWidget(label_5, 17, 0, 1, 2);
+
+        Done = new QPushButton(centralwidget);
+        Done->setObjectName(QString::fromUtf8("Done"));
+
+        gridLayout_2->addWidget(Done, 13, 0, 1, 2);
+
+        Memory_size = new QLineEdit(centralwidget);
+        Memory_size->setObjectName(QString::fromUtf8("Memory_size"));
+
+        gridLayout_2->addWidget(Memory_size, 1, 0, 1, 2);
+
+        hole_Size = new QLineEdit(centralwidget);
+        hole_Size->setObjectName(QString::fromUtf8("hole_Size"));
+
+        gridLayout_2->addWidget(hole_Size, 9, 0, 1, 2);
 
         segment_size = new QLineEdit(centralwidget);
         segment_size->setObjectName(QString::fromUtf8("segment_size"));
 
         gridLayout_2->addWidget(segment_size, 24, 0, 1, 2);
 
+        Enter_button = new QPushButton(centralwidget);
+        Enter_button->setObjectName(QString::fromUtf8("Enter_button"));
+
+        gridLayout_2->addWidget(Enter_button, 3, 0, 1, 2);
+
+        segment_name = new QLineEdit(centralwidget);
+        segment_name->setObjectName(QString::fromUtf8("segment_name"));
+
+        gridLayout_2->addWidget(segment_name, 21, 0, 1, 2);
+
+        hole_Address = new QLineEdit(centralwidget);
+        hole_Address->setObjectName(QString::fromUtf8("hole_Address"));
+
+        gridLayout_2->addWidget(hole_Address, 5, 0, 1, 2);
+
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_2->addItem(verticalSpacer, 26, 0, 1, 2);
+        gridLayout_2->addItem(verticalSpacer, 27, 0, 1, 2);
+
+        Enter_Hole_button = new QPushButton(centralwidget);
+        Enter_Hole_button->setObjectName(QString::fromUtf8("Enter_Hole_button"));
+
+        gridLayout_2->addWidget(Enter_Hole_button, 12, 0, 1, 2);
+
+        Allocatio_Method = new QComboBox(centralwidget);
+        Allocatio_Method->addItem(QString());
+        Allocatio_Method->addItem(QString());
+        Allocatio_Method->addItem(QString());
+        Allocatio_Method->setObjectName(QString::fromUtf8("Allocatio_Method"));
+
+        gridLayout_2->addWidget(Allocatio_Method, 26, 0, 1, 2);
 
 
         gridLayout_3->addLayout(gridLayout_2, 0, 0, 1, 1);
@@ -238,7 +242,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1117, 26));
+        menubar->setGeometry(QRect(0, 0, 1038, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -252,14 +256,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        Enter_Hole_button->setText(QCoreApplication::translate("MainWindow", "Enter hole", nullptr));
-        label_6->setText(QCoreApplication::translate("MainWindow", "Segment Name", nullptr));
-        Allocate_button->setText(QCoreApplication::translate("MainWindow", "Add New Process", nullptr));
-        reset_Button->setText(QCoreApplication::translate("MainWindow", "RESET", nullptr));
-        label_7->setText(QCoreApplication::translate("MainWindow", "Segment Size", nullptr));
-        label_3->setText(QCoreApplication::translate("MainWindow", "Address", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "Holes number", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "Memory size", nullptr));
         QTableWidgetItem *___qtablewidgetitem = segments_table->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "Process", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = segments_table->horizontalHeaderItem(1);
@@ -268,11 +264,23 @@ public:
         ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Segment Size", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = segments_table->horizontalHeaderItem(3);
         ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "deAllocate", nullptr));
-        enter_segment->setText(QCoreApplication::translate("MainWindow", "Enter Segment", nullptr));
-        label_4->setText(QCoreApplication::translate("MainWindow", "Size", nullptr));
-        Enter_button->setText(QCoreApplication::translate("MainWindow", "Enter", nullptr));
         segments_number_button->setText(QCoreApplication::translate("MainWindow", "Enter Segments Information", nullptr));
+        reset_Button->setText(QCoreApplication::translate("MainWindow", "RESET", nullptr));
+        Allocate_button->setText(QCoreApplication::translate("MainWindow", "Add New Process", nullptr));
+        label_6->setText(QCoreApplication::translate("MainWindow", "Segment Name", nullptr));
+        label_7->setText(QCoreApplication::translate("MainWindow", "Segment Size", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Memory size", nullptr));
+        enter_segment->setText(QCoreApplication::translate("MainWindow", "Enter Segment", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "Address", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "Size", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "Segments Number", nullptr));
+        Done->setText(QCoreApplication::translate("MainWindow", "DONE", nullptr));
+        Enter_button->setText(QCoreApplication::translate("MainWindow", "Add New Hole", nullptr));
+        Enter_Hole_button->setText(QCoreApplication::translate("MainWindow", "Enter hole", nullptr));
+        Allocatio_Method->setItemText(0, QCoreApplication::translate("MainWindow", "Best Fit", nullptr));
+        Allocatio_Method->setItemText(1, QCoreApplication::translate("MainWindow", "First Fit", nullptr));
+        Allocatio_Method->setItemText(2, QCoreApplication::translate("MainWindow", "Worst FIt", nullptr));
+
     } // retranslateUi
 
 };

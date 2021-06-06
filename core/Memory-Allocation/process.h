@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "segment.h"
+
 struct process {
 	int id;
 	std::vector<segment> segments;
