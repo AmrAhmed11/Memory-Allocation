@@ -1,7 +1,5 @@
+#include "input.h"
 
-#include "memory.h"
-#include "process.h"
-#include <iostream>
 using namespace std;
 
 //vector<process> new_processes;
