@@ -168,27 +168,6 @@ void MainWindow::on_Enter_button_clicked()
         ui->Enter_button->hide();
 
 
-
-
-        //test draw
-        hole h;
-        h.base = 0;
-        h.limit = 2;
-        h.id= 1;
-        mm.holes.push_back(h);
-
-        segment s;
-        s.base = 4;
-        s.limit = 2;
-        s.process_number = 1;
-        s.name = "a";
-        mm.segments.push_back(s);
-
-        holesNumber++;
-        segmentsNumber++;
-
-        update();
-
     }
 
 }
