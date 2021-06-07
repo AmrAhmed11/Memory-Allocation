@@ -81,11 +81,17 @@ void MainWindow::paintEvent(QPaintEvent *event)
                     QColor color = 0xffffff - currentS.process_number*50;
                     painter.setBrush(color);
 
-                    pen.setColor(Qt::white);
+
+                    pen.setColor(Qt::black);
                     pen.setWidth(2);
 
                     painter.setPen(pen);
                     painter.drawRect(QRect(ui->output_widget->pos().x()+drawingData.last().x(),ui->output_widget->pos().y()+drawingData.last().y() + (currentS.base*factor),drawingLimits.x(),(currentS.limit*factor)+10));
+                    color = 0xffffff + currentS.process_number*50;
+                    pen.setColor(color);
+                    pen.setWidth(2);
+
+                    painter.setPen(pen);
                     painter.drawText(ui->output_widget->pos().x()+20,ui->output_widget->pos().y()+drawingData.last().y()+(((currentS.base+currentS.limit/2)*factor)),"P"+QString::number(currentS.process_number)+ " - " + currentS.name);
 
 
