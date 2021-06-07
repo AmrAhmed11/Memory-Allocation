@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[12];
-    char stringdata0[238];
+    QByteArrayData data[15];
+    char stringdata0[309];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -43,7 +43,10 @@ QT_MOC_LITERAL(7, 150, 24), // "on_enter_segment_clicked"
 QT_MOC_LITERAL(8, 175, 35), // "on_segments_table_cellDoubleC..."
 QT_MOC_LITERAL(9, 211, 3), // "row"
 QT_MOC_LITERAL(10, 215, 6), // "column"
-QT_MOC_LITERAL(11, 222, 15) // "on_Done_clicked"
+QT_MOC_LITERAL(11, 222, 15), // "on_Done_clicked"
+QT_MOC_LITERAL(12, 238, 29), // "on_Allocatio_Method_activated"
+QT_MOC_LITERAL(13, 268, 4), // "arg1"
+QT_MOC_LITERAL(14, 273, 35) // "on_Allocation_Method_Button_c..."
 
     },
     "MainWindow\0on_Enter_Hole_button_clicked\0"
@@ -53,7 +56,9 @@ QT_MOC_LITERAL(11, 222, 15) // "on_Done_clicked"
     "on_segments_number_button_clicked\0"
     "on_enter_segment_clicked\0"
     "on_segments_table_cellDoubleClicked\0"
-    "row\0column\0on_Done_clicked"
+    "row\0column\0on_Done_clicked\0"
+    "on_Allocatio_Method_activated\0arg1\0"
+    "on_Allocation_Method_Button_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -63,7 +68,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -71,14 +76,16 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   54,    2, 0x08 /* Private */,
-       3,    0,   55,    2, 0x08 /* Private */,
-       4,    0,   56,    2, 0x08 /* Private */,
-       5,    0,   57,    2, 0x08 /* Private */,
-       6,    0,   58,    2, 0x08 /* Private */,
-       7,    0,   59,    2, 0x08 /* Private */,
-       8,    2,   60,    2, 0x08 /* Private */,
-      11,    0,   65,    2, 0x08 /* Private */,
+       1,    0,   64,    2, 0x08 /* Private */,
+       3,    0,   65,    2, 0x08 /* Private */,
+       4,    0,   66,    2, 0x08 /* Private */,
+       5,    0,   67,    2, 0x08 /* Private */,
+       6,    0,   68,    2, 0x08 /* Private */,
+       7,    0,   69,    2, 0x08 /* Private */,
+       8,    2,   70,    2, 0x08 /* Private */,
+      11,    0,   75,    2, 0x08 /* Private */,
+      12,    1,   76,    2, 0x08 /* Private */,
+      14,    0,   79,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -88,6 +95,8 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    9,   10,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   13,
     QMetaType::Void,
 
        0        // eod
@@ -107,6 +116,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->on_enter_segment_clicked(); break;
         case 6: _t->on_segments_table_cellDoubleClicked((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 7: _t->on_Done_clicked(); break;
+        case 8: _t->on_Allocatio_Method_activated((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 9: _t->on_Allocation_Method_Button_clicked(); break;
         default: ;
         }
     }
@@ -141,13 +152,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 10)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 8;
+        _id -= 10;
     }
     return _id;
 }
