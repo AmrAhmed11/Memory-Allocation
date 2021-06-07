@@ -50,7 +50,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
         segment currentS = temp.segments.front();
         double factor = drawingLimits.y()/mm.size;
 
-        while(i < holesNumber || j < segmentsNumber){
+        while(i < mm.holes.size() || j < mm.segments.size()){
             if(temp.holes.size() > 0){
                 if(currentH.base < currentS.base || temp.segments.size() == 0){
                     //draw hole
@@ -105,6 +105,32 @@ void MainWindow::paintEvent(QPaintEvent *event)
         }
 
     }
+} else if(isDrawing == 2){
+    hole currentH = temp.holes.front();
+     while(i < mm.holes.size()){
+
+
+                    painter.setBrush(Qt::white);
+                    pen.setColor(Qt::black);
+                    pen.setWidth(2);
+
+                    painter.setPen(pen);
+
+                    painter.drawRect(QRect(ui->output_widget->pos().x()+drawingData.last().x(),ui->output_widget->pos().y()+drawingData.last().y()+(currentH.base*factor),drawingLimits.x(),(currentH.limit*factor)));
+                    painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x()/2)-10,ui->output_widget->pos().y()+drawingData.last().y()+(((currentH.base+currentH.limit/2)*factor)),"Hole " + QString::number(currentH.id));
+
+                    painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentH.base)*factor))+20,"Start : " + QString::number(currentH.base));
+                    painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentH.base+currentH.limit)*factor))-5, "End : " + QString::number(currentH.base + currentH.limit));
+
+                    temp.holes.erase(temp.holes.begin());
+                    if(temp.holes.size() > 0){
+                        currentH = temp.holes.front();
+                    } else {
+
+                    }
+                    i += 1;
+                
+}
 }
 }
 
