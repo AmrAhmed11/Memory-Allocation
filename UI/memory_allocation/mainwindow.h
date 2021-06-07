@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include<QPainter>
+#include "QString"
 #include "../../core/Memory-Allocation/hole.h"
 #include "../../core/Memory-Allocation/memory.h"
 #include "../../core/Memory-Allocation/process.h"
@@ -24,7 +25,7 @@ public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-//    virtual void paintEvent(QPaintEvent *event);
+    virtual void paintEvent(QPaintEvent *event);
 
 
 
@@ -46,8 +47,6 @@ private slots:
     void on_segments_table_cellDoubleClicked(int row, int column);
 
     void on_Done_clicked();
-
-    void on_Allocatio_Method_activated(const QString &arg1);
 
     void on_Allocation_Method_Button_clicked();
 

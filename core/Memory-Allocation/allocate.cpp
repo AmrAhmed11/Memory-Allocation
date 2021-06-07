@@ -1,6 +1,6 @@
 #include "allocate.h"
 
-void allocation(memory &input_memory, std::vector<process> &input_processes, char method)
+void allocation(memory &input_memory, QVector<process> &input_processes, QString method)
 {
     //1 bestfit
     //2 firstfit

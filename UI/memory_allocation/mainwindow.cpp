@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "QString"
 #include <QDebug>
 
 QVector<process> new_processes;
@@ -16,7 +15,7 @@ int counter =1;
 
 //drawing variables
 QVector<QPoint> drawingData;
-QPoint drawingLimits(300, 700);
+QPoint drawingLimits(300, 950);
 int isDrawing = 0;
 
 void MainWindow::paintEvent(QPaintEvent *event)
@@ -236,6 +235,15 @@ void MainWindow::on_Enter_Hole_button_clicked()
 
 void MainWindow::on_reset_Button_clicked()
 {
+    new_processes.clear();
+    temp_process.segments.clear();
+    mm.holes.clear();
+    mm.segments.clear();
+    mm.size = 0;
+    update();
+
+
+    ui->Done->hide();
     ui->Enter_button->show();
     ui->Memory_size->setEnabled(true);
     ui->Memory_size->setText("");
@@ -252,6 +260,8 @@ void MainWindow::on_reset_Button_clicked()
     ui->label_7->hide();
     ui->segment_size->hide();
     ui->enter_segment->hide();
+    ui->Allocation_Method->hide();
+    ui->Allocation_Method_Button->hide();
 
     ui->segment_name->setText("");
     ui->segment_size->setText("");
@@ -356,6 +366,20 @@ void MainWindow::on_segments_table_cellDoubleClicked(int row, int column)
     int i=0;
     QString string2 = ui->segments_table->item(row,0)->text();
     bool process = string2.contains('P');
+    if(process == true){
+        if(string2.contains('l')){
+            int deallocated_index = string2.mid(10,1).toInt();
+            deallocation(mm,-deallocated_index);
+            update();
+        }
+        else{
+            int deallocated_index = string2.mid(8,1).toInt();
+            deallocation(mm,deallocated_index);
+            update();
+        }
+    }
+
+
     while(1){
         QString string1 = ui->segments_table->item(row,0)->text();
         if(  process == true || string1 == QString::number(i))
@@ -382,7 +406,22 @@ void MainWindow::on_Done_clicked()
     }
     else{
         input(mm);
+        for(int i=0;i<mm.segments.size();i++){
+            int rowPosition = ui->segments_table->rowCount();
+            ui->segments_table->insertRow(rowPosition);
+            ui->segments_table->setEditTriggers(QAbstractItemView::NoEditTriggers);
+            ui->segments_table->setItem(rowPosition , 0, new QTableWidgetItem(mm.segments[i].name));
+            ui->segments_table->setItem(rowPosition , 1, new QTableWidgetItem(QString::number(mm.segments[i].base)));
+            ui->segments_table->setItem(rowPosition , 2, new QTableWidgetItem(QString::number(mm.segments[i].limit)));
+            ui->segments_table->setItem(rowPosition , 3, new QTableWidgetItem("DeAllocate Process"));
+            ui->segments_table->item(rowPosition , 3)->setForeground(QBrush(QColor(255, 0, 0)));
+        }
         update();
+        ui->label_3->hide();
+        ui->label_4->hide();
+        ui->Enter_Hole_button->hide();
+        ui->hole_Address->hide();
+        ui->hole_Size->hide();
         ui->Done->hide();
         ui->Allocate_button->show();
         ui->Enter_button->hide();
@@ -390,15 +429,28 @@ void MainWindow::on_Done_clicked()
 }
 
 
-void MainWindow::on_Allocatio_Method_activated(const QString &arg1)
-{
-
-}
-
-
 void MainWindow::on_Allocation_Method_Button_clicked()
 {
-   QString Method = QVariant(ui->Allocation_Method->currentIndex()).toString();
-
+    QString Method = QVariant(ui->Allocation_Method->currentIndex()).toString();
+    if(Method == '0'){//Best fit
+        Method = '1';
+        allocation(mm,new_processes,Method);
+        new_processes.clear();
+        update();
+    }
+    else if(Method == '1'){//First Fit
+        Method = '2';
+        allocation(mm,new_processes,Method);
+        new_processes.clear();
+        update();
+    }
+    else if(Method == '2'){//Worst Fit
+        Method = '3';
+        allocation(mm,new_processes,Method);
+        new_processes.clear();
+        update();
+    }
+    ui->Allocation_Method_Button->hide();
+    ui->Allocation_Method->hide();
 }
 
