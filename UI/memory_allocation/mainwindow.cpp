@@ -38,12 +38,13 @@ void MainWindow::paintEvent(QPaintEvent *event)
     if(mm.size != 0){
         painter.drawText(ui->output_widget->pos().x()-20,ui->output_widget->pos().y()+drawingLimits.y(),QString::number(mm.size));
     }
-    if(isDrawing == 1){
+
         // draw holes and segments
         int i = 0;
         int j = 0;
         memory temp = mm;
-        if(holesNumber != 0 && segmentsNumber != 0){
+
+        if(mm.holes.size() != 0 && mm.segments.size() != 0){
 
 
         hole currentH = temp.holes.front();
@@ -51,11 +52,12 @@ void MainWindow::paintEvent(QPaintEvent *event)
         double factor = drawingLimits.y()/mm.size;
 
         while(i < mm.holes.size() || j < mm.segments.size()){
+            qDebug() << "HERE222";
             if(temp.holes.size() > 0){
                 if(currentH.base < currentS.base || temp.segments.size() == 0){
                     //draw hole
 
-
+                    qDebug() << "HERE";
                     painter.setBrush(Qt::white);
                     pen.setColor(Qt::black);
                     pen.setWidth(2);
@@ -76,18 +78,18 @@ void MainWindow::paintEvent(QPaintEvent *event)
                     }
                     i += 1;
                 }
-            } else if(temp.segments.size() > 0){
+            }  if(temp.segments.size() > 0){
                 if(currentH.base > currentS.base || temp.holes.size() == 0){
                     //draw segment
                     QColor color = 0xffffff - currentS.process_number*50;
                     painter.setBrush(color);
 
-                    pen.setColor(Qt::black);
+                    pen.setColor(Qt::white);
                     pen.setWidth(2);
 
                     painter.setPen(pen);
                     painter.drawRect(QRect(ui->output_widget->pos().x()+drawingData.last().x(),ui->output_widget->pos().y()+drawingData.last().y() + (currentS.base*factor),drawingLimits.x(),(currentS.limit*factor)));
-                    painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x()/2)-10,ui->output_widget->pos().y()+drawingData.last().y()+(((currentS.base+currentS.limit/2)*factor)),"P"+QString::number(currentS.process_number)+ " - " + currentS.name);
+                    painter.drawText(ui->output_widget->pos().x()+20,ui->output_widget->pos().y()+drawingData.last().y()+(((currentS.base+currentS.limit/2)*factor)),"P"+QString::number(currentS.process_number)+ " - " + currentS.name);
 
 
                     painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentS.base)*factor))+20,"Start : " + QString::number(currentS.base));
@@ -105,37 +107,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
         }
 
     }
-} else if(isDrawing == 2){
-      // draw holes and segments
-        int i = 0;
-        int j = 0;
-        memory temp = mm;
-    hole currentH = temp.holes.front();
-     while(i < mm.holes.size()){
 
-
-                    painter.setBrush(Qt::white);
-                    pen.setColor(Qt::black);
-                    pen.setWidth(2);
-
-                    painter.setPen(pen);
-
-                    painter.drawRect(QRect(ui->output_widget->pos().x()+drawingData.last().x(),ui->output_widget->pos().y()+drawingData.last().y()+(currentH.base*factor),drawingLimits.x(),(currentH.limit*factor)));
-                    painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x()/2)-10,ui->output_widget->pos().y()+drawingData.last().y()+(((currentH.base+currentH.limit/2)*factor)),"Hole " + QString::number(currentH.id));
-
-                    painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentH.base)*factor))+20,"Start : " + QString::number(currentH.base));
-                    painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentH.base+currentH.limit)*factor))-5, "End : " + QString::number(currentH.base + currentH.limit));
-
-                    temp.holes.erase(temp.holes.begin());
-                    if(temp.holes.size() > 0){
-                        currentH = temp.holes.front();
-                    } else {
-
-                    }
-                    i += 1;
-                
-}
-}
 }
 
 
@@ -403,6 +375,9 @@ void MainWindow::on_Done_clicked()
     }
     else{
         input(mm);
+        isDrawing = 1;
+        update();
+        isDrawing = 0;
         ui->Done->hide();
         ui->Allocate_button->show();
         ui->Enter_button->hide();
