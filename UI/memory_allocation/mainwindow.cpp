@@ -106,6 +106,10 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
     }
 } else if(isDrawing == 2){
+      // draw holes and segments
+        int i = 0;
+        int j = 0;
+        memory temp = mm;
     hole currentH = temp.holes.front();
      while(i < mm.holes.size()){
 
