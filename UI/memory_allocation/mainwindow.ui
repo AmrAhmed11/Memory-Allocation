@@ -17,8 +17,364 @@
    <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="18" column="0" colspan="2">
-       <widget class="QLineEdit" name="segments_number"/>
+      <item row="22" column="0" colspan="3">
+       <widget class="QLabel" name="label_7">
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Segment Size</string>
+        </property>
+       </widget>
+      </item>
+      <item row="26" column="0" colspan="3">
+       <widget class="QComboBox" name="Allocatio_Method">
+        <item>
+         <property name="text">
+          <string>Best Fit</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>First Fit</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Worst FIt</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="24" column="0" colspan="3">
+       <widget class="QLineEdit" name="segment_size">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+border-radius:5px;
+height: 30px;
+ border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0" colspan="3">
+       <widget class="QLineEdit" name="hole_Size">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+border-radius:5px;
+height: 30px;
+ border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item row="25" column="0" colspan="3">
+       <widget class="QPushButton" name="enter_segment">
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+border-radius: 5px;
+background-color: #04AA6D;
+height: 40px;
+color: white;
+}</string>
+        </property>
+        <property name="text">
+         <string>Enter Segment</string>
+        </property>
+       </widget>
+      </item>
+      <item row="16" column="0" colspan="3">
+       <widget class="QPushButton" name="Allocate_button">
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+border-radius: 5px;
+background-color: #04AA6D;
+height: 40px;
+color: white;
+}</string>
+        </property>
+        <property name="text">
+         <string>Add New Process</string>
+        </property>
+       </widget>
+      </item>
+      <item row="20" column="0" colspan="3">
+       <widget class="QLabel" name="label_6">
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Segment Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="0" colspan="3">
+       <widget class="QLabel" name="label_5">
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Segments Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="0" colspan="3">
+       <widget class="QPushButton" name="Enter_Hole_button">
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+border-radius: 5px;
+background-color: #04AA6D;
+height: 40px;
+color: white;
+}</string>
+        </property>
+        <property name="text">
+         <string>Enter hole</string>
+        </property>
+       </widget>
+      </item>
+      <item row="29" column="2" rowspan="2">
+       <widget class="QWidget" name="output_widget" native="true">
+        <property name="styleSheet">
+         <string notr="true">QWidget{
+min-width: 300px;
+margin-right: 20px;
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="3">
+       <widget class="QPushButton" name="Enter_button">
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+border-radius: 5px;
+background-color: #04AA6D;
+height: 40px;
+color: white;
+
+}</string>
+        </property>
+        <property name="text">
+         <string>Add New Hole</string>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="0" colspan="3">
+       <widget class="QPushButton" name="segments_number_button">
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+border-radius: 5px;
+background-color: #04AA6D;
+height: 40px;
+color: white;
+}</string>
+        </property>
+        <property name="text">
+         <string>Enter Segments Information</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" colspan="3">
+       <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Address</string>
+        </property>
+       </widget>
+      </item>
+      <item row="28" column="0" colspan="3">
+       <widget class="QPushButton" name="reset_Button">
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+border-radius: 5px;
+background-color: #04AA6D;
+height: 40px;
+color: white;
+}</string>
+        </property>
+        <property name="text">
+         <string>RESET</string>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="0" colspan="3">
+       <widget class="QPushButton" name="Done">
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+border-radius: 5px;
+background-color: #04AA6D;
+height: 40px;
+color: white;
+}</string>
+        </property>
+        <property name="text">
+         <string>DONE</string>
+        </property>
+       </widget>
+      </item>
+      <item row="27" column="0" colspan="3">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="5" column="0" colspan="3">
+       <widget class="QLineEdit" name="hole_Address">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+border-radius:5px;
+height: 30px;
+ border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0" colspan="3">
+       <widget class="QLabel" name="label_4">
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Size</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="3">
+       <widget class="QLineEdit" name="Memory_size">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+border-radius:5px;
+height: 30px;
+ border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="0" colspan="3">
+       <widget class="QLineEdit" name="segments_number">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+border-radius:5px;
+height: 30px;
+ border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="3">
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Memory size</string>
+        </property>
+       </widget>
       </item>
       <item row="29" column="0" rowspan="2">
        <widget class="QTableWidget" name="segments_table">
@@ -44,7 +400,7 @@
          <string notr="true">QTableWidget{
 	max-height : 1500px;
 	min-height : 700px;
-	max-width :1500px;
+	margin-top: 10px;
 }</string>
         </property>
         <property name="frameShape">
@@ -133,153 +489,31 @@
         </column>
        </widget>
       </item>
-      <item row="19" column="0" colspan="2">
-       <widget class="QPushButton" name="segments_number_button">
-        <property name="text">
-         <string>Enter Segments Information</string>
-        </property>
-       </widget>
-      </item>
-      <item row="28" column="0" colspan="2">
-       <widget class="QPushButton" name="reset_Button">
-        <property name="text">
-         <string>RESET</string>
-        </property>
-       </widget>
-      </item>
-      <item row="29" column="1" rowspan="2">
-       <widget class="QWidget" name="output_widget" native="true">
+      <item row="21" column="0" colspan="3">
+       <widget class="QLineEdit" name="segment_name">
         <property name="styleSheet">
-         <string notr="true">QWidget{
-min-width: 300px;
-
+         <string notr="true">QLineEdit{
+border-radius:5px;
+height: 30px;
+ border-width: 1px;
+    border-style: solid;
+    border-color: black;
 }</string>
         </property>
        </widget>
       </item>
-      <item row="16" column="0" colspan="2">
-       <widget class="QPushButton" name="Allocate_button">
-        <property name="text">
-         <string>Add New Process</string>
-        </property>
-       </widget>
-      </item>
-      <item row="20" column="0" colspan="2">
-       <widget class="QLabel" name="label_6">
-        <property name="text">
-         <string>Segment Name</string>
-        </property>
-       </widget>
-      </item>
-      <item row="22" column="0" colspan="2">
-       <widget class="QLabel" name="label_7">
-        <property name="text">
-         <string>Segment Size</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Memory size</string>
-        </property>
-       </widget>
-      </item>
-      <item row="25" column="0" colspan="2">
-       <widget class="QPushButton" name="enter_segment">
-        <property name="text">
-         <string>Enter Segment</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0" colspan="2">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Address</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0" colspan="2">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>Size</string>
-        </property>
-       </widget>
-      </item>
-      <item row="17" column="0" colspan="2">
-       <widget class="QLabel" name="label_5">
-        <property name="text">
-         <string>Segments Number</string>
-        </property>
-       </widget>
-      </item>
-      <item row="13" column="0" colspan="2">
-       <widget class="QPushButton" name="Done">
-        <property name="text">
-         <string>DONE</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="2">
-       <widget class="QLineEdit" name="Memory_size"/>
-      </item>
-      <item row="9" column="0" colspan="2">
-       <widget class="QLineEdit" name="hole_Size"/>
-      </item>
-      <item row="24" column="0" colspan="2">
-       <widget class="QLineEdit" name="segment_size"/>
-      </item>
-      <item row="3" column="0" colspan="2">
-       <widget class="QPushButton" name="Enter_button">
-        <property name="text">
-         <string>Add New Hole</string>
-        </property>
-       </widget>
-      </item>
-      <item row="21" column="0" colspan="2">
-       <widget class="QLineEdit" name="segment_name"/>
-      </item>
-      <item row="5" column="0" colspan="2">
-       <widget class="QLineEdit" name="hole_Address"/>
-      </item>
-      <item row="27" column="0" colspan="2">
-       <spacer name="verticalSpacer">
+      <item row="29" column="1">
+       <spacer name="horizontalSpacer">
         <property name="orientation">
-         <enum>Qt::Vertical</enum>
+         <enum>Qt::Horizontal</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>20</width>
-          <height>40</height>
+          <width>40</width>
+          <height>20</height>
          </size>
         </property>
        </spacer>
-      </item>
-      <item row="12" column="0" colspan="2">
-       <widget class="QPushButton" name="Enter_Hole_button">
-        <property name="text">
-         <string>Enter hole</string>
-        </property>
-       </widget>
-      </item>
-      <item row="26" column="0" colspan="2">
-       <widget class="QComboBox" name="Allocatio_Method">
-        <item>
-         <property name="text">
-          <string>Best Fit</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>First Fit</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Worst FIt</string>
-         </property>
-        </item>
-       </widget>
       </item>
      </layout>
     </item>
@@ -291,7 +525,7 @@ min-width: 300px;
      <x>0</x>
      <y>0</y>
      <width>1038</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
