@@ -19,18 +19,18 @@ QVector<QPoint> drawingData;
 QPoint drawingLimits(300, 700);
 int isDrawing = 0;
 
-//void MainWindow::paintEvent(QPaintEvent *event)
-//{
+void MainWindow::paintEvent(QPaintEvent *event)
+{
 
-//    QPainter painter(this);
-//    painter.setBrush(Qt::darkGray);
+   QPainter painter(this);
+   painter.setBrush(Qt::darkGray);
 
-//    QPen pen;
+   QPen pen;
 
-//    pen.setColor(Qt::black);
-//    pen.setWidth(2);
+   pen.setColor(Qt::black);
+   pen.setWidth(2);
 
-//    painter.setPen(pen);
+   painter.setPen(pen);
 
     // draw main memory window
     painter.drawRect(QRect(ui->output_widget->pos().x()+drawingData.last().x(),ui->output_widget->pos().y()+drawingData.last().y(),drawingLimits.x(),drawingLimits.y()));
@@ -47,33 +47,30 @@ int isDrawing = 0;
         if(mm.holes.size() != 0 && mm.segments.size() != 0){
 
 
-//        hole currentH = temp.holes.front();
-//        segment currentS = temp.segments.front();
-//        double factor = drawingLimits.y()/mm.size;
+       hole currentH = temp.holes.front();
+       segment currentS = temp.segments.front();
+       double factor = drawingLimits.y()/mm.size;
 
         while(i < mm.holes.size() || j < mm.segments.size()){
-            qDebug() << "HERE222";
             if(temp.holes.size() > 0){
                 if(currentH.base < currentS.base || temp.segments.size() == 0){
                     //draw hole
-
-                    qDebug() << "HERE";
                     painter.setBrush(Qt::white);
                     pen.setColor(Qt::black);
                     pen.setWidth(2);
 
-//                    painter.setPen(pen);
+                   painter.setPen(pen);
 
-//                    painter.drawRect(QRect(ui->output_widget->pos().x()+drawingData.last().x(),ui->output_widget->pos().y()+drawingData.last().y()+(currentH.base*factor),drawingLimits.x(),(currentH.limit*factor)));
-//                    painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x()/2)-10,ui->output_widget->pos().y()+drawingData.last().y()+(((currentH.base+currentH.limit/2)*factor)),"Hole " + QString::number(currentH.id));
+                   painter.drawRect(QRect(ui->output_widget->pos().x()+drawingData.last().x(),ui->output_widget->pos().y()+drawingData.last().y()+(currentH.base*factor),drawingLimits.x(),(currentH.limit*factor)));
+                   painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x()/2)-10,ui->output_widget->pos().y()+drawingData.last().y()+(((currentH.base+currentH.limit/2)*factor)),"Hole " + QString::number(currentH.id));
 
-//                    painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentH.base)*factor))+20,"Start : " + QString::number(currentH.base));
-//                    painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentH.base+currentH.limit)*factor))-5, "End : " + QString::number(currentH.base + currentH.limit));
+                   painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentH.base)*factor))+20,"Start : " + QString::number(currentH.base));
+                   painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentH.base+currentH.limit)*factor))-5, "End : " + QString::number(currentH.base + currentH.limit));
 
-//                    temp.holes.erase(temp.holes.begin());
-//                    if(temp.holes.size() > 0){
-//                        currentH = temp.holes.front();
-//                    } else {
+                   temp.holes.erase(temp.holes.begin());
+                   if(temp.holes.size() > 0){
+                       currentH = temp.holes.front();
+                   } else {
 
                     }
                     i += 1;
@@ -92,19 +89,19 @@ int isDrawing = 0;
                     painter.drawText(ui->output_widget->pos().x()+20,ui->output_widget->pos().y()+drawingData.last().y()+(((currentS.base+currentS.limit/2)*factor)),"P"+QString::number(currentS.process_number)+ " - " + currentS.name);
 
 
-//                    painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentS.base)*factor))+20,"Start : " + QString::number(currentS.base));
-//                    painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentS.base+currentS.limit)*factor))-5,"End : " + QString::number(currentS.base + currentS.limit));
+                   painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentS.base)*factor))+20,"Start : " + QString::number(currentS.base));
+                   painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentS.base+currentS.limit)*factor))-5,"End : " + QString::number(currentS.base + currentS.limit));
 
-//                    temp.segments.erase(temp.segments.begin());
-//                    if(temp.segments.size() > 0){
-//                        currentS = temp.segments.front();
-//                    }
-//                    j += 1;
+                   temp.segments.erase(temp.segments.begin());
+                   if(temp.segments.size() > 0){
+                       currentS = temp.segments.front();
+                   }
+                   j += 1;
 
-//                }
-//            }
+               }
+           }
 
-//        }
+       }
 
     }
 
