@@ -1,7 +1,7 @@
 #include "validate.h"
 
 bool validateHole(memory& main_memory, hole new_hole) {
-	memory temp_memory= main_memory;
+	memory temp_memory = main_memory;
 
 	sort(temp_memory.holes.begin(), temp_memory.holes.end(), [](hole a, hole b) { return a.base < b.base; });
 
@@ -10,6 +10,10 @@ bool validateHole(memory& main_memory, hole new_hole) {
 			return false;
 		}
 	}
+	if (new_hole.base < 0)
+		return false;
+	if (new_hole.limit > main_memory.size)
+		return false;
 
 	main_memory.holes.push_back(new_hole);
 
