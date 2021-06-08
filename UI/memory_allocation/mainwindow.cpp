@@ -159,11 +159,15 @@ void MainWindow::on_Enter_button_clicked()
 {
 
     if( ui->Memory_size->text().isEmpty()){
-
+        QMessageBox messageBox;
+        messageBox.warning(0,"Error","Memory Size field empty");
+        messageBox.setFixedSize(500,200);
     }
     else if(ui->Memory_size->text().toInt() <= 0){
 //ERROR MSG
-        qDebug()<<"memory size cannot be -ve or zero";
+        QMessageBox messageBox;
+        messageBox.warning(0,"Error","Memory Size Cannot be -ve or Zero");
+        messageBox.setFixedSize(500,200);
     }
     else{
         mm.size = ui->Memory_size->text().toInt();
@@ -191,15 +195,22 @@ void MainWindow::on_Enter_Hole_button_clicked()
 
     if(ui->hole_Address->text().isEmpty() || ui->hole_Size->text().isEmpty()){
 //ERROR MSG
-        qDebug() << "ERROR Empty";
+        QMessageBox messageBox;
+        messageBox.warning(0,"Error","Empty hole address or size field");
+        messageBox.setFixedSize(500,200);
     }
     else if(ui->hole_Size->text().toInt() <= 0 ){
 //ERROR MSG
-        qDebug() << "size cannot be -ve or zero";
+
+        QMessageBox messageBox;
+        messageBox.warning(0,"Error","hole size cannot be -ve or zero");
+        messageBox.setFixedSize(500,200);
     }
     else if( ui->hole_Address->text().toInt() < 0 || ui->hole_Address->text().toInt() >= mm.size){
 //ERROR MSG
-        qDebug() << "hole address out of bounds";
+        QMessageBox messageBox;
+        messageBox.warning(0,"Error","hole address out of bounds");
+        messageBox.setFixedSize(500,200);
     }
     else{
         if(validateHole(mm, h)){
@@ -224,7 +235,9 @@ void MainWindow::on_Enter_Hole_button_clicked()
         }
         else{
 //ERROR MSG
-            qDebug() << "ERROR not valid";
+            QMessageBox messageBox;
+            messageBox.warning(0,"Error","hole not valid");
+            messageBox.setFixedSize(500,200);
         }
     }
 }
@@ -288,12 +301,16 @@ void MainWindow::on_Allocate_button_clicked()
 
 void MainWindow::on_segments_number_button_clicked()
 {
-    if(ui->segments_number->text().toInt() <= 0){
-//ERROR MSG
-        qDebug()<<"segments number cannot be -ve or zero";
+    if(ui->segments_number->text().isEmpty()){
+        QMessageBox messageBox;
+        messageBox.warning(0,"Error","segments number field empty");
+        messageBox.setFixedSize(500,200);
     }
-    else if( ui->segments_number->text().isEmpty()){
-
+    else if(ui->segments_number->text().toInt() <= 0){
+//ERROR MSG
+        QMessageBox messageBox;
+        messageBox.warning(0,"Error","segments number cannot be -ve or zero");
+        messageBox.setFixedSize(500,200);
     }
     else{
         segmentsNumber = ui->segments_number->text().toInt();
@@ -320,11 +337,15 @@ void MainWindow::on_enter_segment_clicked()
 {
     if(ui->segment_name->text().isEmpty() || ui->segment_size->text().isEmpty()){
 //ERROR MSG
-        qDebug() << "EMPTY";
+        QMessageBox messageBox;
+        messageBox.warning(0,"Error","segments name or size field empty");
+        messageBox.setFixedSize(500,200);
     }
     else if(ui->segment_size->text().toInt() <= 0){
 //ERROR MSG
-        qDebug() << "segment size cannot be -ve or zero";
+        QMessageBox messageBox;
+        messageBox.warning(0,"Error","segment size cannot be -ve or zero");
+        messageBox.setFixedSize(500,200);
     }
     else{
         segment new_segment;
@@ -378,54 +399,58 @@ void MainWindow::on_segments_table_cellDoubleClicked(int row, int column)
             update();
         }
     }
+    table_Draw();
+}
 
-
-    while(1){
-        QString string1 = ui->segments_table->item(row,0)->text();
-        if(  process == true || string1 == QString::number(i))
-        {
-            process=false;
-            ui->segments_table->removeRow(row);
-            if(row == ui->segments_table->rowCount()){
-                break;
+void MainWindow::table_Draw(){
+    ui->segments_table->model()->removeRows(0,ui->segments_table->rowCount());
+    for(int i =0;i<mm.holes.size();i++){
+        int segmentRow = ui->segments_table->rowCount();
+        ui->segments_table->insertRow(segmentRow);
+        ui->segments_table->setItem(segmentRow , 0, new QTableWidgetItem("Hole " + QString::number(mm.holes[i].id)));
+        ui->segments_table->setItem(segmentRow , 1, new QTableWidgetItem(QString::number(mm.holes[i].base)));
+        ui->segments_table->setItem(segmentRow , 2, new QTableWidgetItem(QString::number(mm.holes[i].limit)));
+    }
+    int o;
+    for(int i =0;i<mm.segments.size();i++){
+        if( i==0 || mm.segments[i].process_number != o){
+            if(mm.segments[i].name.contains('P')){
+                int segmentRow = ui->segments_table->rowCount();
+                ui->segments_table->insertRow(segmentRow);
+                ui->segments_table->setItem(segmentRow , 0, new QTableWidgetItem(mm.segments[i].name));
+                ui->segments_table->setItem(segmentRow , 1, new QTableWidgetItem(QString::number(mm.segments[i].base)));
+                ui->segments_table->setItem(segmentRow , 2, new QTableWidgetItem(QString::number(mm.segments[i].limit)));
+                ui->segments_table->setItem(segmentRow , 3, new QTableWidgetItem("DeAllocate Process"));
+                ui->segments_table->item(segmentRow , 3)->setForeground(QBrush(QColor(255, 0, 0)));
+                continue;
             }
+            int segmentRow = ui->segments_table->rowCount();
+            ui->segments_table->insertRow(segmentRow);
+            ui->segments_table->setItem(segmentRow , 0, new QTableWidgetItem("Process " + QString::number(mm.segments[i].process_number)));
+            ui->segments_table->setItem(segmentRow , 3, new QTableWidgetItem("DeAllocate Process"));
+            ui->segments_table->item(segmentRow , 3)->setForeground(QBrush(QColor(255, 0, 0)));
         }
-        else{
-            break;
-        }
-        i++;
+        o = mm.segments[i].process_number;
+        int segmentRow = ui->segments_table->rowCount();
+        ui->segments_table->insertRow(segmentRow);
+        ui->segments_table->setItem(segmentRow , 1, new QTableWidgetItem(mm.segments[i].name));
+        ui->segments_table->setItem(segmentRow , 2, new QTableWidgetItem(QString::number(mm.segments[i].limit)));
     }
 }
 
-
 void MainWindow::on_Done_clicked()
 {
-    if(mm.holes.size() == 0){
-//ERROR MSG
-        qDebug()<<"No holes added";
-    }
-    else{
-        input(mm);
-        for(int i=0;i<mm.segments.size();i++){
-            int rowPosition = ui->segments_table->rowCount();
-            ui->segments_table->insertRow(rowPosition);
-            ui->segments_table->setEditTriggers(QAbstractItemView::NoEditTriggers);
-            ui->segments_table->setItem(rowPosition , 0, new QTableWidgetItem(mm.segments[i].name));
-            ui->segments_table->setItem(rowPosition , 1, new QTableWidgetItem(QString::number(mm.segments[i].base)));
-            ui->segments_table->setItem(rowPosition , 2, new QTableWidgetItem(QString::number(mm.segments[i].limit)));
-            ui->segments_table->setItem(rowPosition , 3, new QTableWidgetItem("DeAllocate Process"));
-            ui->segments_table->item(rowPosition , 3)->setForeground(QBrush(QColor(255, 0, 0)));
-        }
-        update();
-        ui->label_3->hide();
-        ui->label_4->hide();
-        ui->Enter_Hole_button->hide();
-        ui->hole_Address->hide();
-        ui->hole_Size->hide();
-        ui->Done->hide();
-        ui->Allocate_button->show();
-        ui->Enter_button->hide();
-    }
+    input(mm);
+    table_Draw();
+    update();
+    ui->label_3->hide();
+    ui->label_4->hide();
+    ui->Enter_Hole_button->hide();
+    ui->hole_Address->hide();
+    ui->hole_Size->hide();
+    ui->Done->hide();
+    ui->Allocate_button->show();
+    ui->Enter_button->hide();
 }
 
 
@@ -450,6 +475,7 @@ void MainWindow::on_Allocation_Method_Button_clicked()
         new_processes.clear();
         update();
     }
+    table_Draw();
     ui->Allocation_Method_Button->hide();
     ui->Allocation_Method->hide();
 }
