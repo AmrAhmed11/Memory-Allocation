@@ -3,6 +3,15 @@
 
 #include <QMainWindow>
 #include<QPainter>
+#include "QString"
+#include "../../core/Memory-Allocation/hole.h"
+#include "../../core/Memory-Allocation/memory.h"
+#include "../../core/Memory-Allocation/process.h"
+#include "../../core/Memory-Allocation/segment.h"
+#include "../../core/Memory-Allocation/allocate.h"
+#include "../../core/Memory-Allocation/deallocate.h"
+#include "../../core/Memory-Allocation/input.h"
+#include "../../core/Memory-Allocation/validate.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -36,6 +45,10 @@ private slots:
     void on_enter_segment_clicked();
 
     void on_segments_table_cellDoubleClicked(int row, int column);
+
+    void on_Done_clicked();
+
+    void on_Allocation_Method_Button_clicked();
 
 private:
     Ui::MainWindow *ui;

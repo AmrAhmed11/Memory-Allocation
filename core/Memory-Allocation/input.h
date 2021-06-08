@@ -3,7 +3,9 @@
 
 #include "memory.h"
 #include "process.h"
+#include <QVector>
 #include <iostream>
-void input(memory main_memory, vector<process>& new_processes, char& method);
+
+void input(memory &main_memory);
 
 #endif
