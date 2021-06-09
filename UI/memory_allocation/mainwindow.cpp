@@ -35,25 +35,45 @@ void MainWindow::paintEvent(QPaintEvent *event)
     // draw main memory window
     painter.drawRect(QRect(ui->output_widget->pos().x()+drawingData.last().x(),ui->output_widget->pos().y()+drawingData.last().y(),drawingLimits.x(),drawingLimits.y()));
     painter.drawText(ui->output_widget->pos().x()-5,ui->output_widget->pos().y()+25,"0");
-//    if(mm.size != 0){
-//        painter.drawText(ui->output_widget->pos().x()-20,ui->output_widget->pos().y()+drawingLimits.y(),QString::number(mm.size));
-//    }
+
+    if(mm.segments.size() ==0 && mm.holes.size()){
+        int x = 0;
+        hole cHole;
+        double factor = drawingLimits.y()/mm.size;
+        while(x<mm.holes.size()){
+            cHole = mm.holes[x];
+            painter.setBrush(Qt::white);
+            pen.setColor(Qt::black);
+            pen.setWidth(2);
+
+           painter.setPen(pen);
+
+            painter.drawRect(QRect(ui->output_widget->pos().x()+drawingData.last().x(),ui->output_widget->pos().y()+drawingData.last().y()+(cHole.base*factor),drawingLimits.x(),(cHole.limit*factor)+25));
+            painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x()/2)-10,ui->output_widget->pos().y()+drawingData.last().y()+(((cHole.base+cHole.limit/2)*factor)),"Hole " + QString::number(cHole.id));
+
+    //                   painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentH.base)*factor))+20,"Start : " + QString::number(currentH.base));
+           painter.drawText(ui->output_widget->pos().x()-15,ui->output_widget->pos().y()+drawingData.last().y()+(((cHole.base+cHole.limit)*factor))-5, QString::number(cHole.base + cHole.limit));
+
+            x += 1;
+        }
+
+    }
 
         // draw holes and segments
         int i = 0;
         int j = 0;
         memory temp = mm;
 
-        if(mm.holes.size() != 0 || mm.segments.size() != 0){
+        if(mm.holes.size() != 0 && mm.segments.size() != 0){
 
 
-       hole currentH ;
+       hole currentH  = temp.holes.front();
        segment currentS;
        if(mm.segments.size()!= 0){
             currentS = temp.segments.front();
        }
        else if(mm.holes.size()!=0){
-            currentH = temp.holes.front();
+            currentH = temp.holes.front();            
        }
 
        double factor = drawingLimits.y()/mm.size;
@@ -77,9 +97,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
                    temp.holes.erase(temp.holes.begin());
                    if(temp.holes.size() > 0){
                        currentH = temp.holes.front();
-                   } else {
-
-                    }
+                   }
                     i += 1;
                 }
             }  if(temp.segments.size() > 0){
