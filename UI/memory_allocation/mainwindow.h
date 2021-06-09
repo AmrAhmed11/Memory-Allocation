@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include<QPainter>
 #include "QString"
+#include <QMessageBox>
 #include "../../core/Memory-Allocation/hole.h"
 #include "../../core/Memory-Allocation/memory.h"
 #include "../../core/Memory-Allocation/process.h"
@@ -30,6 +31,8 @@ public:
 
 
 private slots:
+
+    void table_Draw();
 
     void on_Enter_Hole_button_clicked();
 

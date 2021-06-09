@@ -18,6 +18,9 @@ void allocation(memory &input_memory, QVector<process> &input_processes, QString
             else if (method=='3'){
                 sort(main_memory.holes.begin(), main_memory.holes.end(), [](hole a, hole b) { return a.limit > b.limit; });
             }
+            else if (method=='2'){
+                            sort(main_memory.holes.begin(), main_memory.holes.end(), [](hole a, hole b) { return a.base < b.base; });
+            }
             for (int j = 0; j < main_memory.holes.size(); j++)
             {
                 if (input_processes[i].segments[k].limit <= main_memory.holes[j].limit)

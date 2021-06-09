@@ -18,6 +18,7 @@ void deallocation(memory &input_memory, int deallocated_process){
             input_memory.holes[i].limit +=input_memory.holes[i+1].limit;
             auto it = input_memory.holes.begin() + (i+1);
             input_memory.holes.erase(it);
+            i--;
         }
     }
     for (int i = 0;i<input_memory.holes.size();i++ ){
