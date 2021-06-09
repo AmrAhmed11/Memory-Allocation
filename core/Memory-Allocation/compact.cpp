@@ -2,8 +2,10 @@
 
 void compact(memory &input_memory)
 {
+    if( input_memory.segments.size() == 0){
+        return;
+    }
     int hole_total_limit = 0;
-
     input_memory.segments[0].base = 0;
 
     for (int i = 1; i < input_memory.segments.size(); i++)
