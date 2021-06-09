@@ -58,6 +58,40 @@ void MainWindow::paintEvent(QPaintEvent *event)
         }
 
     }
+    if(mm.holes.size() == 0 && mm.segments.size()){
+        int x = 0;
+        segment cSeg;
+        double factor = drawingLimits.y()/mm.size;
+        while(x<mm.segments.size()){
+            cSeg = mm.segments[x];
+            QColor color = 0xffffff - cSeg.process_number*50;
+            painter.setBrush(color);
+
+
+            pen.setColor(Qt::black);
+            pen.setWidth(2);
+
+            painter.setPen(pen);
+            painter.drawRect(QRect(ui->output_widget->pos().x()+drawingData.last().x(),ui->output_widget->pos().y()+drawingData.last().y() + (cSeg.base*factor),drawingLimits.x(),(cSeg.limit*factor)+25));
+            color = 0xffffff + cSeg.process_number*50;
+            pen.setColor(color);
+            pen.setWidth(2);
+
+            painter.setPen(pen);
+            painter.drawText(ui->output_widget->pos().x()+20,ui->output_widget->pos().y()+drawingData.last().y()+(((cSeg.base+cSeg.limit/2)*factor))+20,"P"+QString::number(cSeg.process_number)+ " - " + cSeg.name);
+
+            pen.setColor(Qt::black);
+            pen.setWidth(2);
+
+            painter.setPen(pen);
+//                   painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentS.base)*factor))+20,"Start : " + QString::number(currentS.base));
+           painter.drawText(ui->output_widget->pos().x()-15,ui->output_widget->pos().y()+drawingData.last().y()+(((cSeg.base+cSeg.limit)*factor))+20,QString::number(cSeg.base + cSeg.limit));
+
+
+            x += 1;
+        }
+
+    }
 
         // draw holes and segments
         int i = 0;
