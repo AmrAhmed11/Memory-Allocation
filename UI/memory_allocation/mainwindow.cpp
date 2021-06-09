@@ -47,10 +47,13 @@ void MainWindow::paintEvent(QPaintEvent *event)
         if(mm.holes.size() != 0 || mm.segments.size() != 0){
 
 
-       hole currentH = temp.holes.front();
+       hole currentH ;
        segment currentS;
        if(mm.segments.size()!= 0){
             currentS = temp.segments.front();
+       }
+       else if(mm.holes.size()!=0){
+            currentH = temp.holes.front();
        }
 
        double factor = drawingLimits.y()/mm.size;
@@ -213,7 +216,7 @@ void MainWindow::on_Enter_Hole_button_clicked()
         messageBox.warning(0,"Error","hole size cannot be -ve or zero");
         messageBox.setFixedSize(500,200);
     }
-    else if( !ui->hole_Address->text().isSimpleText() &&(ui->hole_Address->text().toInt() < 0 || ui->hole_Address->text().toInt() >= mm.size)){
+    else if(ui->hole_Address->text().toInt() < 0 || ui->hole_Address->text().toInt() >= mm.size){
 //ERROR MSG
         QMessageBox messageBox;
         messageBox.warning(0,"Error","hole address out of bounds");
@@ -262,7 +265,7 @@ void MainWindow::on_reset_Button_clicked()
     mm.holes.clear();
     mm.segments.clear();
     mm.size = 0;
-    update();
+update();
 
     ui->pushButton->hide();
     ui->Done->hide();
@@ -403,12 +406,12 @@ void MainWindow::on_segments_table_cellDoubleClicked(int row, int column)
         if(string2.contains('l')){
             int deallocated_index = string2.mid(10,1).toInt();
             deallocation(mm,-deallocated_index);
-            update();
+    update();
         }
         else{
             int deallocated_index = string2.mid(8,1).toInt();
             deallocation(mm,deallocated_index);
-            update();
+    update();
         }
     }
     table_Draw();
@@ -476,19 +479,19 @@ void MainWindow::on_Allocation_Method_Button_clicked()
         Method = '1';
         Error = allocation(mm,new_processes,Method);
         new_processes.clear();
-        update();
+update();
     }
     else if(Method == '1'){//First Fit
         Method = '2';
         Error = allocation(mm,new_processes,Method);
         new_processes.clear();
-        update();
+update();
     }
     else if(Method == '2'){//Worst Fit
         Method = '3';
         Error = allocation(mm,new_processes,Method);
         new_processes.clear();
-        update();
+update();
     }
     if(Error!=0){
         QMessageBox messageBox;

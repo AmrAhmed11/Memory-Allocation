@@ -248,6 +248,7 @@ Makefile: ../memory_allocation/memory_allocation.pro E:/qt/5.15.2/mingw81_64/mks
 		E:/qt/5.15.2/mingw81_64/mkspecs/features/qt_config.prf \
 		E:/qt/5.15.2/mingw81_64/mkspecs/win32-g++/qmake.conf \
 		E:/qt/5.15.2/mingw81_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		E:/qt/5.15.2/mingw81_64/mkspecs/features/exclusive_builds.prf \
 		E:/qt/5.15.2/mingw81_64/mkspecs/features/toolchain.prf \
 		E:/qt/5.15.2/mingw81_64/mkspecs/features/default_pre.prf \
@@ -276,7 +277,6 @@ Makefile: ../memory_allocation/memory_allocation.pro E:/qt/5.15.2/mingw81_64/mks
 		E:/qt/5.15.2/mingw81_64/lib/Qt5Gui.prl \
 		E:/qt/5.15.2/mingw81_64/lib/Qt5Core.prl \
 		E:/qt/5.15.2/mingw81_64/lib/qtmain.prl \
-		.qmake.stash \
 		E:/qt/5.15.2/mingw81_64/mkspecs/features/build_pass.prf
 	$(QMAKE) -o Makefile ..\memory_allocation\memory_allocation.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 E:/qt/5.15.2/mingw81_64/mkspecs/features/spec_pre.prf:
@@ -457,6 +457,7 @@ E:/qt/5.15.2/mingw81_64/mkspecs/features/qt_functions.prf:
 E:/qt/5.15.2/mingw81_64/mkspecs/features/qt_config.prf:
 E:/qt/5.15.2/mingw81_64/mkspecs/win32-g++/qmake.conf:
 E:/qt/5.15.2/mingw81_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 E:/qt/5.15.2/mingw81_64/mkspecs/features/exclusive_builds.prf:
 E:/qt/5.15.2/mingw81_64/mkspecs/features/toolchain.prf:
 E:/qt/5.15.2/mingw81_64/mkspecs/features/default_pre.prf:
@@ -485,7 +486,6 @@ E:/qt/5.15.2/mingw81_64/lib/Qt5Widgets.prl:
 E:/qt/5.15.2/mingw81_64/lib/Qt5Gui.prl:
 E:/qt/5.15.2/mingw81_64/lib/Qt5Core.prl:
 E:/qt/5.15.2/mingw81_64/lib/qtmain.prl:
-.qmake.stash:
 E:/qt/5.15.2/mingw81_64/mkspecs/features/build_pass.prf:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\memory_allocation\memory_allocation.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
