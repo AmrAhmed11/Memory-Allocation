@@ -99,14 +99,14 @@ void MainWindow::paintEvent(QPaintEvent *event)
                     pen.setWidth(2);
 
                     painter.setPen(pen);
-                    painter.drawText(ui->output_widget->pos().x()+20,ui->output_widget->pos().y()+drawingData.last().y()+(((currentS.base+currentS.limit/2)*factor)),"P"+QString::number(currentS.process_number)+ " - " + currentS.name);
+                    painter.drawText(ui->output_widget->pos().x()+20,ui->output_widget->pos().y()+drawingData.last().y()+(((currentS.base+currentS.limit/2)*factor))+20,"P"+QString::number(currentS.process_number)+ " - " + currentS.name);
 
                     pen.setColor(Qt::black);
                     pen.setWidth(2);
 
                     painter.setPen(pen);
 //                   painter.drawText(ui->output_widget->pos().x()+(drawingLimits.x())-70,ui->output_widget->pos().y()+drawingData.last().y()+(((currentS.base)*factor))+20,"Start : " + QString::number(currentS.base));
-                   painter.drawText(ui->output_widget->pos().x()-15,ui->output_widget->pos().y()+drawingData.last().y()+(((currentS.base+currentS.limit)*factor))-5,QString::number(currentS.base + currentS.limit));
+                   painter.drawText(ui->output_widget->pos().x()-15,ui->output_widget->pos().y()+drawingData.last().y()+(((currentS.base+currentS.limit)*factor))+20,QString::number(currentS.base + currentS.limit));
 
                    temp.segments.erase(temp.segments.begin());
                    if(temp.segments.size() > 0){
