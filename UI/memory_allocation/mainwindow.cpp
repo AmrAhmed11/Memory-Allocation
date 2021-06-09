@@ -127,7 +127,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     drawingData.push_back(QPoint(10,10));
     mm.size = 0;
-
     ui->setupUi(this);
     ui->hole_Address->hide();
     ui->hole_Size->hide();
@@ -136,6 +135,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label_5->hide();
     ui->label_6->hide();
     ui->label_7->hide();
+
+    ui->pushButton->hide();
 
     ui->segments_number->hide();
     ui->segment_name->hide();
@@ -149,6 +150,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->Done->hide();
     ui->Allocation_Method->hide();
     ui->Allocation_Method_Button->hide();
+    ui->segments_table->setDisabled(true);
 
 }
 
@@ -214,7 +216,7 @@ void MainWindow::on_Enter_Hole_button_clicked()
         messageBox.warning(0,"Error","hole size cannot be -ve or zero");
         messageBox.setFixedSize(500,200);
     }
-    else if( ui->hole_Address->text().toInt() < 0 || ui->hole_Address->text().toInt() >= mm.size){
+    else if( !ui->hole_Address->text().isSimpleText() &&(ui->hole_Address->text().toInt() < 0 || ui->hole_Address->text().toInt() >= mm.size)){
 //ERROR MSG
         QMessageBox messageBox;
         messageBox.warning(0,"Error","hole address out of bounds");
@@ -256,6 +258,8 @@ void MainWindow::on_Enter_Hole_button_clicked()
 
 void MainWindow::on_reset_Button_clicked()
 {
+    counter=1;
+    ui->segments_table->setDisabled(true);
     new_processes.clear();
     temp_process.segments.clear();
     mm.holes.clear();
@@ -263,7 +267,7 @@ void MainWindow::on_reset_Button_clicked()
     mm.size = 0;
     update();
 
-
+    ui->pushButton->hide();
     ui->Done->hide();
     ui->Enter_button->show();
     ui->Memory_size->setEnabled(true);
@@ -300,6 +304,8 @@ void MainWindow::on_Allocate_button_clicked()
     temp_process.id = counter;
     temp_process.segments.clear();
 
+    ui->segments_table->setDisabled(true);
+
     ui->segments_number->show();
     ui->label_5->show();
     ui->segments_number_button->show();
@@ -329,8 +335,8 @@ void MainWindow::on_segments_number_button_clicked()
         ui->segments_table->insertRow(segmentRow);
         QString process = "Process "+QString::number(processNumber);
         ui->segments_table->setItem(segmentRow , 0, new QTableWidgetItem(process));
-        ui->segments_table->setItem(segmentRow , 3, new QTableWidgetItem("DeAllocate Process"));
-        ui->segments_table->item(segmentRow , 3)->setForeground(QBrush(QColor(255, 0, 0)));
+        //ui->segments_table->setItem(segmentRow , 3, new QTableWidgetItem("DeAllocate Process"));
+        //ui->segments_table->item(segmentRow , 3)->setForeground(QBrush(QColor(255, 0, 0)));
         ui->segment_name->show();
         ui->label_6->show();
         ui->label_7->show();
@@ -356,6 +362,7 @@ void MainWindow::on_enter_segment_clicked()
         messageBox.setFixedSize(500,200);
     }
     else{
+
         segment new_segment;
         new_segment.name =  ui->segment_name->text();
         new_segment.limit =  ui->segment_size->text().toInt();
@@ -448,9 +455,11 @@ void MainWindow::table_Draw(){
 
 void MainWindow::on_Done_clicked()
 {
+    ui->segments_table->setEnabled(true);
     input(mm);
     table_Draw();
     update();
+    ui->pushButton->show();
     ui->label_3->hide();
     ui->label_4->hide();
     ui->Enter_Hole_button->hide();
@@ -465,26 +474,43 @@ void MainWindow::on_Done_clicked()
 void MainWindow::on_Allocation_Method_Button_clicked()
 {
     QString Method = QVariant(ui->Allocation_Method->currentIndex()).toString();
+    int Error;
     if(Method == '0'){//Best fit
         Method = '1';
-        allocation(mm,new_processes,Method);
+        Error = allocation(mm,new_processes,Method);
         new_processes.clear();
         update();
     }
     else if(Method == '1'){//First Fit
         Method = '2';
-        allocation(mm,new_processes,Method);
+        Error = allocation(mm,new_processes,Method);
         new_processes.clear();
         update();
     }
     else if(Method == '2'){//Worst Fit
         Method = '3';
-        allocation(mm,new_processes,Method);
+        Error = allocation(mm,new_processes,Method);
         new_processes.clear();
         update();
     }
+    if(Error!=0){
+        QMessageBox messageBox;
+        QString str = "Error allocating process " + QString::number(Error) + ",please try compact first";
+        messageBox.warning(0,"Error",str);
+        messageBox.setFixedSize(500,200);
+    }
+    ui->pushButton->show();
+    ui->segments_table->setEnabled(true);
     table_Draw();
     ui->Allocation_Method_Button->hide();
     ui->Allocation_Method->hide();
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    compact(mm);
+    update();
+    table_Draw();
 }
 

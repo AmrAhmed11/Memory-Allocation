@@ -10,7 +10,17 @@ using namespace std;
 void input(memory &main_memory) {
 
     sort(main_memory.holes.begin(), main_memory.holes.end(), [](hole a, hole b) { return a.base < b.base; });
-
+    for (int i = 0;i<main_memory.holes.size()-1;i++ ){
+        if ((main_memory.holes[i].base+main_memory.holes[i].limit)==main_memory.holes[i+1].base){
+            main_memory.holes[i].limit +=main_memory.holes[i+1].limit;
+            auto it = main_memory.holes.begin() + (i+1);
+            main_memory.holes.erase(it);
+            i--;
+        }
+    }
+    for (int i = 0;i<main_memory.holes.size();i++ ){
+        main_memory.holes[i].id=i;
+    }
     //creating old processes
     QVector<process> old_processes;
 

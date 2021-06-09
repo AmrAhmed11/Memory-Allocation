@@ -7,6 +7,6 @@
 #include <QVector>
 #include <iostream>
 
-void allocation(memory& input_memory, QVector<process>& input_processes, QString method);
+int allocation(memory& input_memory, QVector<process>& input_processes, QString method);
 
 #endif
