@@ -15,11 +15,12 @@ int counter =1;
 
 //drawing variables
 QVector<QPoint> drawingData;
-QPoint drawingLimits(300, 950);
+
 int isDrawing = 0;
 
 void MainWindow::paintEvent(QPaintEvent *event)
 {
+    QPoint drawingLimits(300, this->size().height() - 50);
 
    QPainter painter(this);
    painter.setBrush(Qt::darkGray);
@@ -43,11 +44,15 @@ void MainWindow::paintEvent(QPaintEvent *event)
         int j = 0;
         memory temp = mm;
 
-        if(mm.holes.size() != 0 && mm.segments.size() != 0){
+        if(mm.holes.size() != 0 || mm.segments.size() != 0){
 
 
        hole currentH = temp.holes.front();
-       segment currentS = temp.segments.front();
+       segment currentS;
+       if(mm.segments.size()!= 0){
+            currentS = temp.segments.front();
+       }
+
        double factor = drawingLimits.y()/mm.size;
 
         while(i < mm.holes.size() || j < mm.segments.size()){
@@ -85,7 +90,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
                     pen.setWidth(2);
 
                     painter.setPen(pen);
-                    painter.drawRect(QRect(ui->output_widget->pos().x()+drawingData.last().x(),ui->output_widget->pos().y()+drawingData.last().y() + (currentS.base*factor),drawingLimits.x(),(currentS.limit*factor)+10));
+                    painter.drawRect(QRect(ui->output_widget->pos().x()+drawingData.last().x(),ui->output_widget->pos().y()+drawingData.last().y() + (currentS.base*factor),drawingLimits.x(),(currentS.limit*factor)+15));
                     color = 0xffffff + currentS.process_number*50;
                     pen.setColor(color);
                     pen.setWidth(2);
