@@ -1,13 +1,12 @@
 #include "allocate.h"
 
-void allocation(memory &input_memory, QVector<process> &input_processes, QString method)
+int allocation(memory &input_memory, QVector<process> &input_processes, QString method)
 {
     //1 bestfit
     //2 firstfit
     //3 worstfit
     int no_of_segments=0;
     memory main_memory = input_memory;
-    bool allocated=false;
     for (int i = 0; i < input_processes.size(); i++)
     {   
         for (int k = 0; k < input_processes[i].segments.size(); k++)
@@ -48,11 +47,12 @@ void allocation(memory &input_memory, QVector<process> &input_processes, QString
         }
         else{
             main_memory=input_memory;
-            std::cout << "Error loading process "<<i+1<<'\n';
+            return i+1;
         }
         no_of_segments = 0;
     }
      for (int i = 0;i<input_memory.holes.size();i++ ){
         input_memory.holes[i].id=i;
     } 
+     return 0;
 }

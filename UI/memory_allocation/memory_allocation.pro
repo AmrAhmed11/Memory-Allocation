@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     ../../core/Memory-Allocation/allocate.cpp \
+    ../../core/Memory-Allocation/compact.cpp \
     ../../core/Memory-Allocation/deallocate.cpp \
     ../../core/Memory-Allocation/input.cpp \
     ../../core/Memory-Allocation/validate.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
     mainwindow.cpp
 HEADERS += \
     ../../core/Memory-Allocation/allocate.h \
+    ../../core/Memory-Allocation/compact.h \
     ../../core/Memory-Allocation/deallocate.h \
     ../../core/Memory-Allocation/hole.h \
     ../../core/Memory-Allocation/input.h \

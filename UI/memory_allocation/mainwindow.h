@@ -13,6 +13,7 @@
 #include "../../core/Memory-Allocation/deallocate.h"
 #include "../../core/Memory-Allocation/input.h"
 #include "../../core/Memory-Allocation/validate.h"
+#include "../../core/Memory-Allocation/compact.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -52,6 +53,8 @@ private slots:
     void on_Done_clicked();
 
     void on_Allocation_Method_Button_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
