@@ -190,6 +190,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label_6->hide();
     ui->label_7->hide();
 
+    ui->Memory_size->setValidator( new QIntValidator(0, INT_MAX, this) );
+    ui->hole_Address->setValidator( new QIntValidator(0, INT_MAX, this) );
+    ui->hole_Size->setValidator( new QIntValidator(0, INT_MAX, this) );
+    ui->segments_number->setValidator( new QIntValidator(0, INT_MAX, this) );
+    ui->segment_size->setValidator( new QIntValidator(0, INT_MAX, this) );
+
     ui->pushButton->hide();
 
     ui->segments_number->hide();
@@ -230,7 +236,7 @@ void MainWindow::on_Enter_button_clicked()
     else if(ui->Memory_size->text().toInt() <= 0){
 //ERROR MSG
         QMessageBox messageBox;
-        messageBox.warning(0,"Error","Memory Size Cannot be -ve or Zero");
+        messageBox.warning(0,"Error","Memory Size Cannot be Zero");
         messageBox.setFixedSize(500,200);
     }
     else{
@@ -267,7 +273,7 @@ void MainWindow::on_Enter_Hole_button_clicked()
 //ERROR MSG
 
         QMessageBox messageBox;
-        messageBox.warning(0,"Error","hole size cannot be -ve or zero");
+        messageBox.warning(0,"Error","hole size cannot be Zero");
         messageBox.setFixedSize(500,200);
     }
     else if(ui->hole_Address->text().toInt() < 0 || ui->hole_Address->text().toInt() >= mm.size){
@@ -377,7 +383,7 @@ void MainWindow::on_segments_number_button_clicked()
     else if(ui->segments_number->text().toInt() <= 0){
 //ERROR MSG
         QMessageBox messageBox;
-        messageBox.warning(0,"Error","segments number cannot be -ve or zero");
+        messageBox.warning(0,"Error","segments number cannot be Zero");
         messageBox.setFixedSize(500,200);
     }
     else{
@@ -412,7 +418,7 @@ void MainWindow::on_enter_segment_clicked()
     else if(ui->segment_size->text().toInt() <= 0){
 //ERROR MSG
         QMessageBox messageBox;
-        messageBox.warning(0,"Error","segment size cannot be -ve or zero");
+        messageBox.warning(0,"Error","segment size cannot be Zero");
         messageBox.setFixedSize(500,200);
     }
     else{
