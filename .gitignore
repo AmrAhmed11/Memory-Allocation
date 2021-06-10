@@ -4,3 +4,21 @@ core/Memory-Allocation/.vs/slnx.sqlite
 core/Memory-Allocation/.vs/Memory-Allocation/v16/.suo
 core/Memory-Allocation/.vs/Memory-Allocation/v16/Browse.VC.db
 
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/ui_mainwindow.h
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/Makefile.Release
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/Makefile.Debug
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/Makefile
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/debug/validate.obj
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/debug/moc_predefs.h
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/debug/moc_mainwindow.obj
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/debug/moc_mainwindow.cpp
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/debug/memory_allocation.vc.pdb
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/debug/memory_allocation.pdb
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/debug/memory_allocation.ilk
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/debug/mainwindow.obj
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/debug/main.obj
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/debug/input.obj
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/debug/deallocate.obj
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/debug/compact.obj
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/debug/allocate.obj
+UI/build-memory_allocation-Desktop_Qt_5_12_11_MSVC2017_64bit-Debug/.qmake.stash
