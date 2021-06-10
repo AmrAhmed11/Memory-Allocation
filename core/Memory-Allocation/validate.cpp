@@ -12,7 +12,7 @@ bool validateHole(memory& main_memory, hole new_hole) {
 	}
 	if (new_hole.base < 0)
 		return false;
-	if (new_hole.limit > main_memory.size)
+    if (new_hole.base + new_hole.limit > main_memory.size)
 		return false;
 
 	main_memory.holes.push_back(new_hole);

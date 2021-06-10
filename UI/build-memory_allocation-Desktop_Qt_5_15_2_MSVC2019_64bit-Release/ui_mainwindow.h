@@ -400,7 +400,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Memory Allocation", nullptr));
         Allocation_Method->setItemText(0, QCoreApplication::translate("MainWindow", "Best Fit", nullptr));
         Allocation_Method->setItemText(1, QCoreApplication::translate("MainWindow", "First Fit", nullptr));
         Allocation_Method->setItemText(2, QCoreApplication::translate("MainWindow", "Worst FIt", nullptr));
